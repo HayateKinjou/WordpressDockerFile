@@ -1,0 +1,33 @@
+version: '3.3'
+services: 
+    wordpress:
+        image: wordpress
+        container_name: wordpress_custom
+        depends_on: 
+            - db
+        ports: 
+            - "8000:80" #好きにポートを変えて使ってOK
+        restart: always
+        environment: 
+            WORDPRESS_DB_HOST: db:3306
+            WORDPRESS_DB_USER: wordpress
+            WORDPRESS_DB_PASSWORD: wordpress
+            WORDPRESS_DB_NAME: wordpress
+            WORDPRESS_DEBUG: 1
+        volumes: 
+            - ./docker/wordpress:/var/www/html
+            - ./plugins:/var/www/html/wp-content/plugins
+            - ./themes:/var/www/html/wp-content/themes
+    db:
+        image: mysql:5.7
+        container_name: mysql_custom
+        ports:
+            - "4306:3306"
+        volumes:
+            - ./docker/db:/var/lib/mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: wordpress
+            MYSQL_USER: wordpress
+            MYSQL_PASSWORD: wordpress   
