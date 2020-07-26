@@ -192,4 +192,4 @@ pyenv
 Vagrantfile
 
 #DockerTmpDir
-Docker/
+docker/
