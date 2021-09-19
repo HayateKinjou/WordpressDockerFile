@@ -8,6 +8,9 @@ mysql version : 5.7
 
 ## 各コマンド等
 
+### Docker作成
+docker-compose up -d
+
 ### Docker起動
 docker-compose run -d
 
