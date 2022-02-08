@@ -12,7 +12,7 @@ mysql version : 5.7
 docker-compose up -d
 
 ### Docker起動
-docker-compose run -d
+docker-compose up -d
 
 ### Docker削除
 docker-compose down
